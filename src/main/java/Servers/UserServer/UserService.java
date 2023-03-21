@@ -10,6 +10,9 @@ import Tables.UsersTable.UsersTableInterface;
 
 import java.util.List;
 
+import static constants.Constants.moneyValue.DOUBLE_ZERO;
+import static constants.Constants.moneyValue.ZERO;
+
 public class UserService implements UserServiceInterface {
 
     UsersTableInterface usersTable = new UsersTableMethods();
@@ -48,11 +51,11 @@ public class UserService implements UserServiceInterface {
     public boolean deleteUser(User user) throws Exception {
         AccountTableInterface accountTable = new AccountTableMethods();
         List<Account> userAccounts = accountTable.selectByUserId(user.getId());
-        double balance = 0.0;
+        double balance = DOUBLE_ZERO;
         for (Account account : userAccounts) {
             balance = +account.getBalance();
         }
-        if (balance == 0) {
+        if (balance == ZERO) {
             usersTable.delete(user.getId());
             return true;
         }

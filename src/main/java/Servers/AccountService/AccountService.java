@@ -14,6 +14,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static constants.Constants.length.LENGTH;
+import static constants.Constants.moneyValue.*;
+
 public class AccountService implements AccountServiceInterface {
 
     AccountTableInterface accountTable = new AccountTableMethods();
@@ -41,7 +44,7 @@ public class AccountService implements AccountServiceInterface {
         if (!checkAcceptable(moneyValue)) {
             return false;
         }
-        if (account.getBalance() + moneyValue >= 2000000000) {
+        if (account.getBalance() + moneyValue >= MAX_BALANCE) {
             return false;
         }
         String strValueToTransaction = String.valueOf(moneyValue);
@@ -95,11 +98,11 @@ public class AccountService implements AccountServiceInterface {
     }
 
     private boolean checkLengthOfString(String amount) {
-        return (amount.length() <= 13);
+        return (amount.length() <= LENGTH);
     }
 
     private boolean checkAcceptable(Double amount) {
-        return (amount > 0 && amount <= 100000000);
+        return (amount > ZERO && amount <= MAX_TRANSACTION_VALUE);
     }
 
     public List<Account> getAccountByUserId(int userId) throws MySQLException {
@@ -112,7 +115,7 @@ public class AccountService implements AccountServiceInterface {
 
     public boolean deleteAccountByAccountId(int accountId) throws MySQLException {
         Account account = getAccountByAccountId(accountId);
-        if (account.getBalance() == 0) {
+        if (account.getBalance() == ZERO) {
             accountTable.delete(accountId);
             return true;
         }

@@ -18,19 +18,19 @@ public class Controller {
         Account account = new Account();
         Scanner scanner = new Scanner(System.in);
         System.out.println("What do you want to do? You can choose next operations:" + "\n"
-        + "1. New user registration. Key 'addUser'" + "\n"
-        + "2. Adding an account to a new user. Key 'addAccount'" + "\n"
-        + "3. Top up an existing account. Key 'TopUpBalance'" + "\n"
-        + "4. Withdrawing funds from an existing account. Key 'withdrawing'" + "\n"
+        + "1. New user registration. Key '1'" + "\n"
+        + "2. Adding an account to a new user. Key '2'" + "\n"
+        + "3. Top up an existing account. Key '3'" + "\n"
+        + "4. Withdrawing funds from an existing account. Key '4'" + "\n"
         + "If you have registration yet, you can also choose next operation:" + "\n"
-        + "1. Find information about user. Key 'showUser'" + "\n"
-        + "2. Add/update information about user's address. Key 'updateAddress'" + "\n"
-        + "3. Delete user. Key 'deleteUser'" + "\n"
-        + "4. Delete account. Key 'deleteAccount'" + "\n"
+        + "1. Find information about user. Key '5'" + "\n"
+        + "2. Add/update information about user's address. Key '6'" + "\n"
+        + "3. Delete user. Key '7'" + "\n"
+        + "4. Delete account. Key '8'" + "\n"
         + "Write the operation key:");
-        String key = scanner.nextLine();
+        int key = scanner.nextInt();
         switch (key) {
-            case "addUser":
+            case 1:
                 System.out.println("Enter user name:");
                 String name = scanner.nextLine();
                 user.setName(name);
@@ -48,7 +48,7 @@ public class Controller {
                     System.out.println("Thanks for using our app. User was added. Your id is " + id);
                 }
                 break;
-            case "addAccount":
+            case 2:
                 System.out.println("Enter balance:");
                 double balance = scanner.nextDouble();
                 account.setBalance(balance);
@@ -63,7 +63,7 @@ public class Controller {
                 System.out.println("Success! You just created account. Now you have next accounts: " + "\n"
                         + accountId);
                 break;
-            case "TopUpBalance":
+            case 3:
                 System.out.println("Enter accountId:");
                 int accountIdTopUp = scanner.nextInt();
                 account.setId(accountIdTopUp);
@@ -79,7 +79,7 @@ public class Controller {
                     System.out.println("Transaction cannot be executed!");
                 }
                 break;
-            case "withdrawing":
+            case 4:
                 System.out.println("Enter accountId:");
                 int accountIdWithdraw = scanner.nextInt();
                 account.setId(accountIdWithdraw);
@@ -99,7 +99,7 @@ public class Controller {
                     }
                 }
                 break;
-            case "showUser":
+            case 5:
                 System.out.println("If you want to find user by id, write key '1'. If you want to find user by name, write key '2'." + "\n"
                 + "Write a key:");
                 String value = scanner.next();
@@ -115,7 +115,7 @@ public class Controller {
                     System.out.println(showUser2);
                 }
                 break;
-            case "updateAddress":
+            case 6:
                 System.out.println("Enter userId");
                 int userIdUpdateAddress = scanner.nextInt();
                 user.setId(userIdUpdateAddress);
@@ -124,14 +124,14 @@ public class Controller {
                 userTable.updateUserAddress(user, newAddress);
                 System.out.println("Thanks for using our app. Address was updated. Your current address is " + newAddress);
                 break;
-            case "deleteUser":
+            case 7:
                     System.out.println("Enter userId:");
                     int userIdDelete = scanner.nextInt();
                     user.setId(userIdDelete);
                     userTable.deleteUser(user);
                     System.out.println("Success! User was deleted");
                 break;
-            case "deleteAccount":
+            case 8:
                 System.out.println("Enter accountId:");
                 int accountIdDelete = scanner.nextInt();
                 account.setId(accountIdDelete);
