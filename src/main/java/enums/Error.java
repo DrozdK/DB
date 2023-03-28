@@ -3,7 +3,7 @@ package enums;
 import lombok.Getter;
 
 @Getter
-public enum Errors {
+public enum Error {
     //User Table Errors
     USERS_TABLE_ERROR_INSERT("Insert method"),
     USERS_TABLE_ERROR_SELECT_BY_USERID("Select by userId method"),
@@ -23,7 +23,7 @@ public enum Errors {
 
     private final String error;
 
-    Errors(String error) {
+    Error(String error) {
         this.error = error;
     }
 }

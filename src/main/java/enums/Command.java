@@ -3,7 +3,7 @@ package enums;
 import lombok.Getter;
 
 @Getter
-public enum Commands {
+public enum Command {
     //User Table
     USERS_TABLE_SELECT_BY_USERID("SELECT * FROM Users WHERE userId = "),
     USERS_TABLE_SELECT_BY_NAME("SELECT * FROM Users WHERE name = '"),
@@ -23,7 +23,7 @@ public enum Commands {
 
     private final String command;
 
-    Commands(String command) {
+    Command(String command) {
         this.command = command;
     }
 }

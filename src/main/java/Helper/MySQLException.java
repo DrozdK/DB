@@ -1,14 +1,14 @@
 package Helper;
 
-import enums.Errors;
+import enums.Error;
 import lombok.Getter;
 
 @Getter
 public class MySQLException extends java.lang.Exception {
 
-    private final Errors error;
+    private final Error error;
 
-    public MySQLException(Errors error, Throwable cause) {
+    public MySQLException(Error error, Throwable cause) {
         super(cause);
         this.error = error;
     }

@@ -5,8 +5,8 @@ import Connection.DBConnection;
 
 import java.sql.*;
 
-import static enums.Errors.*;
-import static enums.Commands.*;
+import static enums.Error.*;
+import static enums.Command.*;
 
 public class UsersTableMethods implements UsersTableInterface {
 

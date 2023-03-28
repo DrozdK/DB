@@ -11,8 +11,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static enums.Errors.*;
-import static enums.Commands.*;
+import static enums.Error.*;
+import static enums.Command.*;
 
 public class AccountTableMethods implements AccountTableInterface {
 

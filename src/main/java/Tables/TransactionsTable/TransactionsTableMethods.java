@@ -7,8 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import static enums.Errors.*;
-import static enums.Commands.*;
+import static enums.Error.*;
+import static enums.Command.*;
 
 public class TransactionsTableMethods implements TransactionsTableInterface {
     Connection connection;
